@@ -2,6 +2,13 @@
 Changelog for package tello_driver
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Unreleased (porting to ROS2)
+----------------------------
+* Split into `tello_msgs` and `tello_driver` packages.
+* Made `tello_driver` a pure Python ROS2 package
+
+
+
 0.3.0 (2019-10-12)
 ------------------
 * Merge branch 'development' of https://github.com/appie-17/tello_driver into development

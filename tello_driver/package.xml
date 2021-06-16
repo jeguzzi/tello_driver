@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>tello_driver</name>
+  <version>0.0.0</version>
+  <description>>This package provides a ROS interface for the TelloPy library.
+  Development of this ROS package pursues not to modify the TelloPy library,
+  instead apply any modification or addition to the ros_driver package in an encapsulated manner.
+  This is an unrealeased ROS2 fork of the original package.</description>
+
+  <author email="jordyvanappeven@gmail.com">Jordy van Appeven</author>
+  <author email="jerome@idsia.ch">Jerome Guzzi</maintainer>
+  <maintainer email="jerome@idsia.ch">Jerome Guzzi</maintainer>
+
+  <!-- Url tags are optional, but mutiple are allowed, one per tag -->
+  <!-- Optional attribute type can be: website, bugtracker, or repository -->
+  <url>http://www.ros.org/wiki/tello_driver</url>
+  <url type="website">https://github.com/jeguzzi/tello_driver</url>
+
+  <license>Apache2</license>
+
+  <test_depend>ament_copyright</test_depend>
+  <test_depend>ament_flake8</test_depend>
+  <test_depend>ament_pep257</test_depend>
+  <test_depend>python3-pytest</test_depend>
+  <exec_depend>rclpy</exec_depend>
+  <exec_depend>cv_bridge</exec_depend>
+  <exec_depend>tello_msgs</exec_depend>
+  <exec_depend>sensor_msgs</exec_depend>
+  <exec_depend>geometry_msgs</exec_depend>
+  <exec_depend>std_msgs</exec_depend>
+  <exec_depend>std_srvs</exec_depend>
+  <exec_depend>cv_bridge</exec_depend>
+  <exec_depend>nav_msgs</exec_depend>
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>
