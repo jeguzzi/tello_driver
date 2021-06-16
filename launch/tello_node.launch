@@ -4,8 +4,14 @@
 	<arg name="tello_cmd_server_port"	default="8889" />
 	<arg name="local_cmd_client_port"	default="8890" />
 	<arg name="local_vid_server_port"	default="6038" />
-	<arg name="camera_calibration"		default="$(find tello_driver)/cfg/960x720.yaml" />    
+	<arg name="camera_calibration"		default="$(find tello_driver)/cfg/960x720.yaml" />
 	<arg name="namespace"			default="tello" />
+	<arg name="vel_cmd_scale" default="1.0" />
+	<arg name="connect_timeout_sec" default="10.0" />
+	<arg name="low_bat_threshold" default="0.07" />
+	<arg name="altitude_limit" default="10" />
+	<arg name="attitude_limit" default="15" />
+	<arg name="publish_raw_image" default="False" />
 
 	<group ns="$(arg namespace)">
 
@@ -14,12 +20,18 @@
 			<param name="local_vid_server_port" value="$(arg local_vid_server_port)" />
 			<param name="tello_ip" value="$(arg tello_ip)" />
 			<param name="tello_cmd_server_port" value="$(arg tello_cmd_server_port)" />
-			<param name="connect_timeout_sec" value="10.0" />
+			<param name="connect_timeout_sec" value="$(arg connect_timeout_sec)" />
 			<param name="stream_h264_video" value="true" />
-			<param name="camera_calibration" value="$(arg camera_calibration)" />			
+			<param name="camera_calibration" value="$(arg camera_calibration)" />
+			<param name="odom_frame" value="odom"/>
+			<param name="tf_prefix" value=""/>
+			<param name="vel_cmd_scale" value="$(arg vel_cmd_scale)"/>
+			<param name="low_bat_threshold" value="$(arg low_bat_threshold)"/>
+			<param name="altitude_limit" value="$(arg altitude_limit)"/>
+			<param name="attitude_limit" value="$(arg attitude_limit)"/>
 		</node>
 
-		<node pkg="image_transport" name="image_compressed" type="republish" args="raw in:=image_raw compressed out:=image_raw" />
+		<node if="$(arg publish_raw_image)" pkg="image_transport" name="decompress_image" type="republish" args="h264 in:=image_raw raw out:=image_raw" />
 
 	</group>
 
