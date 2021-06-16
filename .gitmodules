@@ -1,3 +1,0 @@
-[submodule "tello_driver/src/TelloPy"]
-	path = tello_driver/src/TelloPy
-	url = https://github.com/hanyazou/TelloPy.git
